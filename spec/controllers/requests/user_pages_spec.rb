@@ -4,6 +4,18 @@ describe "User pages" do
 
   subject { page }
 
+	describe "profile page" do
+
+		let(:user) { FactoryGirl.create(:user)}
+		before { visit user_path(user) }
+
+		it { should have_content(user.name) }
+		it { should have_title(user.name) }  
+
+	end
+
+
+
   describe "signup" do
 
     before { visit signup_path }
@@ -29,4 +41,8 @@ describe "User pages" do
       end
     end
   end
+	
+
+
+
 end
